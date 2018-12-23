@@ -1,3 +1,15 @@
+// This solution to the Producer/Consumer problem uses a mutex
+// to lock the critical areas that the producer and comsumer share
+// Each thread will check the buffer (size = 1) to see if there is
+// a value.  If there is, one, the producer will sleep and signal the 
+// consumer.  If there is no value, the consumer will signal the producer
+// and the sleep.  The producer will place a value and the consumer will
+// consume the value if the criteria are met.
+//
+// Jackie A. Adair
+// CST-221 Week 2 Assignment Producer-Consumer
+// 23 December 2018
+
 #include <stdio.h>
 #include <pthread.h>
 
