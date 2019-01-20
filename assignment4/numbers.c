@@ -1,6 +1,6 @@
 // Jackie A. Adair
 // CST 221
-// Topic 5 Memory Management
+// Topic 6 Memory Management
 // 20 Jan 2019
 // This code gathers input from the user and performs the described actions
 
