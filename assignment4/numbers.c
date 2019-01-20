@@ -1,16 +1,26 @@
+// Jackie A. Adair
+// CST 221
+// Topic 5 Memory Management
+// 20 Jan 2019
+// This code gathers input from the user and performs the described actions
+
 #include <stdio.h>
 #include <limits.h>
 
+// Converts the decimal to binary
 void printInBinary(long num, int bit){
 
+    // if the number is completely converted, return
     if ( bit >= 8*sizeof(num) )
     {
        return;
     }
 
+    // recursively convert to binary
     printInBinary(num/2, bit+1);
     printf("%ld", num%2);
 
+    // split into 8 bit segments
     if ( bit%8 == 0 )
     {
        printf(" ");
@@ -21,10 +31,12 @@ void printInBinary(long num, int bit){
     }
 }
 
+// convert the decimal to a hex and print
 void printInHex(long num){
     printf("ox%032lx\n\n", num);
 }
 
+// perform multiple operations IAW the assignment
 void finalCow(long num){
     long shiftedNum = num << 16;
     //printf("%ld shifted 16 bits to the left\n%ld\n", num, shiftedNum);
@@ -44,9 +56,12 @@ void finalCow(long num){
 int main()
 {
     long number;
-    printf("Enter a number between 0 and 4095: ");
-    scanf("%ld", &number);
-    printf("\n");
+    do{
+
+        printf("Enter a number between 0 and 4095: ");
+        scanf("%ld", &number);
+        printf("\n");
+    }while(number > 4095 || number < 0);
 
     printf("Printing %ld in 32-bit binary with the least significant bit on the right: \n", number);
     printInBinary(number, 0);
